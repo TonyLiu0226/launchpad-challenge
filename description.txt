@@ -5,12 +5,18 @@ Assumptions: We have already developed the site for desktop (1920x1080 resolutio
 
 Given that we already have developed a desktop site, my approach to this problem is to first take a look at the current site and see how all the components are currently styled or laid out. 
 Then, we can determine how we want the site to look on mobile by addressing these questions:
-- How would we rearrange the content such that it fits naturally within the mobile viewport (in our example 750x1334)? (For example, if we have components displayed horizontally in a flexbox, we would need to implement horizontal scrolling if they were to be displayed on mobile, which is not natural. Instead, on mobile viewports we could rearrange the components vertically, allowing us to naturally scroll top to bottom to view the components.)
-- Do we need all of the components on the desktop site to be visible on mobile? (For example, sometimes in desktop view cards will have an image then text below, however in mobile view the image may be omitted. Additionally, desktop view may include a sidebar to help with navigation and make the layout more functional, however this is often absent in the mobile view as width is limited.) 
+- How would we rearrange the content such that it fits naturally within the mobile viewport (in our example 750x1334)? (For example, if we have components displayed horizontally in a flexbox, 
+we would need to implement horizontal scrolling if they were to be displayed on mobile, which is not natural. Instead, on mobile viewports we could rearrange the components vertically, 
+allowing us to naturally scroll top to bottom to view the components.)
+- Do we need all of the components on the desktop site to be visible on mobile? (For example, sometimes in desktop view cards will have an image then text below,
+however in mobile view the image may be omitted. Additionally, desktop view may include a sidebar to help with navigation and make the layout more functional, 
+however this is often absent in the mobile view as width is limited.) 
 
 We should then make a rough draft by sketching or graphically designing the gist of things (the layout of the mobile page) first, to have an idea of our goal. 
 After this point, we implement the code necessary for our mobile webpage. 
-This often involves styling changes using CSS media queries plus maybe some javascript to change the layout once the screen size drops below a certain resolution, or potentially a js library such as React or Svelte to implement state changes, where the state will change with the size of the screen, and once it does, it will change what HTML gets displayed on the page, and hence what components are displayed, which is useful if we don't want to display certain components in mobile view.
+This often involves styling changes using CSS media queries plus maybe some javascript to change the layout once the screen size drops below a certain resolution, 
+or potentially using a js library such as React or Svelte to implement state changes, where the state will change with the size of the screen, and once it does, 
+it will change what HTML gets displayed on the page, and hence what components are displayed, which is useful if we don't want to display certain components in mobile view.
 
 After implementing our code, it is very important to test it out on a mobile device, first using developer tools, and then later on the physical device. 
 We must ensure that everything displays exactly the way we intended it to be displayed, and that the website is still easy for the user to navigate and use on a mobile device. If not, then we must make changes to our code.
@@ -23,6 +29,7 @@ This navbar takes advantage of the full width of the desktop, but when we reduce
 My idea was to have the mobile navbar consist of just the logo and a toggle for a dropdown menu, where once the user toggles the dropdown, the links will "drop down" from the navbar and display vertically.
 The user can then toggle the dropdown once again to hide all of the links again. This way, we take advantage of the increased height of the mobile viewport, while being able to fit everything more naturally in the reduced width of the viewport.
 We did not need to remove any functionality from the navbar, as although the links are hidden at first, by pressing the toggle button they will still appear and allow users access to them.
-As for the implementation, I simply used a media query to achieve this. Once the screen width dropped below 1024 pixels, the media query will change the layout of the navbar, by setting the display of the links to be none and making the toggle, which was previously not displayed, visible.
+As for the implementation, I simply used a media query to achieve this. Once the screen width dropped below 1024 pixels, the media query will change the layout of the navbar, 
+by setting the display of the links to be none and making the toggle, which was previously not displayed, visible.
 However, for sake of keeping the example small, I did not implement the functionality of the toggle button, so no dropdown menu containing the links will be displayed. 
 If I were to implement that however, I would just need to add an on click listener to the toggle, which calls a javascript function to modify the navbar to display the links. 
