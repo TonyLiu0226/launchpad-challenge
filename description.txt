@@ -31,5 +31,8 @@ The user can then toggle the dropdown once again to hide all of the links again.
 We did not need to remove any functionality from the navbar, as although the links are hidden at first, by pressing the toggle button they will still appear and allow users access to them.
 As for the implementation, I simply used a media query to achieve this. Once the screen width dropped below 1024 pixels, the media query will change the layout of the navbar, 
 by setting the display of the links to be none and making the toggle, which was previously not displayed, visible.
-However, for sake of keeping the example small, I did not implement the functionality of the toggle button, so no dropdown menu containing the links will be displayed. 
+I chose 1024 pixels after some trial and error determining the screen size where the links would start overlapping with each other. Although it is possible to have the
+links not overlap with each other at lower resolution, 1024px by 768px is the nearest native resolution to the point where they did overlap, so it makes sense to put the breakpoint there.
+
+For sake of keeping the example small, I did not implement the functionality of the toggle button, so no dropdown menu containing the links will be displayed. 
 If I were to implement that however, I would just need to add an on click listener to the toggle, which calls a javascript function to modify the navbar to display the links. 
